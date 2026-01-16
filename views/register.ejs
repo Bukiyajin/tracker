@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/registerstyles.css">
+    <title>Document</title>
+</head>
+<body>
+    <header class="header-container">
+        <h1 class="header-title">FOR YOUR USEFUL BOOK LIFE</h1>
+    </header>
+    <main>
+        <div class="register-container">
+            <h1>ようこそ</h1>
+            <h2>↓こちらでユーザ登録してください↓</h2>
+            <h3><%= message %></h3>
+            <form name="register_form" method="POST">   
+                <div class="register-input">
+                    <label>ユーザ名：</label><br>
+                    <input type="text" name="username" id="username"  required><br>
+                    <label>パスワード：</label><br>
+                    <input type="password" name="password" id="password"  required><br>
+                </div>
+                    <button type="button"
+                            id="action-btn">登録</button>            
+            </form>
+        </div>
+    <script type="text/javascript" src="/js/registerscript.js"></script> 
+    </main>
+
+    <!--<footer class="footer-container">
+        <p class="footer-text">Made In Me</p>
+    </footer>-->
+</body>
+
+</html>

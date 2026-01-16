@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/select.css">
+    <title><%= pagetitle %></title>
+</head>
+<header>
+    <div>
+        <!--<h2>訪問回数→→<span id="visit-count"><%# visitCount %></span></h2>-->
+    </div>
+</header>
+<body>
+    <h1 id="welcome">🐞本のムシ🐞へようこそ<%= username %>さん！</h1>
+
+    <div>
+        <h1 id="current-title"></h1>
+    </div>
+
+    <div class="select-container">
+        <div id="left">
+            <a id="arrow-left" onclick="moveLeft()">  </a>
+        </div>
+
+        <div id="select_1" class="book-select selected" hidden>
+            <a href ="/home" class="book">📕</a><br>
+        </div >
+        <div id="select_2" class="book-select" hidden>
+            <a href ="/want" class="book">📗</a><br>
+        </div>
+        <div id="select_3" class="book-select" hidden>
+            <a href ="/test" class="book">📔</a><br>
+        </div>
+        <div id="select_4" class="book-select" hidden>
+            <a href ="/donebook" class="book">📘</a>
+        </div>
+        <div id="select_5" class="book-select" hidden>
+            <a href ="/logout" class="logoutoor">🚪</a>
+        </div>
+        
+        <script>
+            selects.addEventLIstener('mouseover',function(){
+            box.style.backgroundColor = 'orange';
+            });
+        </script>
+
+        <div id="right">
+            <a id="arrow-right" onclick="moveRight()">  </a>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="/js/select_script.js"></script>    
+</body>
+</html>

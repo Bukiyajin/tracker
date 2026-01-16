@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>読みたい本-<%= pagetitle %></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+    <header>
+        <a href="/home">読んでる㌿</a>
+    </header>
+<body>
+    <h1>📕 気になる本</h1>
+    <h2>📖現在<%= wbooks.length %>冊</h2>
+    <a href="/addwantbook">＋ ㌿を追加する</a>
+    <a href="/want">元に戻す➡</a>
+        <!--プルダウン検索※作者の名前は出せた-->
+        <form method="POST" action="/author-select-wants">
+                <select name="author">
+                        <!--<option>全ての著者</option>-->
+                        <option value="" disabled selected style="display:none;">選択してください</option>
+                    <% authors.forEach(authorObj => { %>
+                        <option value="<%= authorObj.author %>"><%= authorObj.author %></option>
+                    <% }); %>
+                </select>
+            <button type="submit">検索</button>
+        </form>
+    <ul>
+        <% wbooks.forEach(wbook => { %>
+        <li id="list-<%= wbook.id %>" class="want-list">
+            <small>登録日 <%= wbook.formatted_add_date %></small><br>
+                <strong>
+                    <%= wbook.title %>
+                </strong> - <%= wbook.author %>
+            <!--購入ボタン-->
+
+            <button type="button"
+                class="action-btn"
+                data-action="/want_delete"
+                data-id="<%= wbook.id %>"
+                data-title="<%= wbook.title %>">買った！</button>
+
+            <!--
+            <form method="POST" action="/want_delete">
+                <input type="hidden" name="id" value="<%# wbook.id %>">
+                <input type="hidden" name="title" value="<%# wbook.title %>">
+                <button type="submit">買った！</button>
+            </form> -->
+        </li>
+        <% }); %>
+    </ul>
+    <script type="text/javascript" src="/js/wantscript.js"></script>
+    <a href="/">戻る→</a>
+</body>
+</html>

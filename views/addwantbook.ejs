@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>📖 ほしい本を追加-<%= pagetitle %></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>📖 ほしい本を登録</h1>
+    <form name="add_form" method="POST" action="/add_want">
+        <label>タイトル: <input type="text" name="title" required></label><br>
+        <label>著者: <input type="text" name="author"></label><br>
+        <button type="button" id="add-btn">追加</button>
+    </form>  
+    <a href="/want">← 戻る</a>
+    
+    <script type="text/javascript" src="/js/addwantscript.js"></script>
+</body>
+</html>

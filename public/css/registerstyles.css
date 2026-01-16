@@ -1,0 +1,37 @@
+body{
+    background-color: rgba(255, 228, 196);
+    position: absolute;
+    top: 30.5%;
+    left: 38%;
+}
+.header-container{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    background-image: url(../img/bookshelfai.jpg);
+    border-bottom-color: black;
+    border-bottom-style: solid;
+    height: 150px;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+    .header-title{
+        color:bisque;
+        text-shadow: 4px 4px 6px #000000;
+    }
+    .register-container{
+        background-color: azure;
+        text-align: center;
+        padding-bottom:50px;
+        
+    }
+.footer-container{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    background-image: url(../img/bookshelfai.jpg);
+    height: 150px;
+    width: 100%;
+
+}

@@ -1,0 +1,23 @@
+#login_form {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-color:black;
+    border-style: solid;
+    text-align:center;
+    padding: 20px;
+    top: 140px;
+    width: 300px;
+    margin: 0 auto;
+}
+#form-btn{
+    position:relative;
+    top:10px;
+}
+.form-label{
+    font-size:12px;
+}
+.form-group{
+    text-align: left;
+    position: relative;
+}

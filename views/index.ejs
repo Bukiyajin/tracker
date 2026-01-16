@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>📚<%= pagetitle %></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+    <header>
+        <a href="/test">💻テスト</a>
+        <a href="/test2">テスト２</a>
+        <a href="/want">読みたい㌿</a>
+    </header>
+<body>
+    <h1 oncopy="alert('コピー使えないよー'); return false;">📚 読書進行度</h1>
+    <h2>📖現在<%= books.length %>冊</h2>
+    <a href="/add">＋ ㌿を追加する</a>
+    <a href="/home">元に戻す➡</a>
+    <!--プルダウン検索※作者の名前は出せた-->
+        <form method="POST" action="/author-select-books">
+                <select name="author">
+                        <!--<option>全ての著者</option>-->
+                        <option value="" disabled selected style="display:none;">選択してください</option>
+                    <% authors.forEach(authorObj => { %>
+                        <option value="<%= authorObj.author %>"><%= authorObj.author %></option>
+                    <% }); %>
+                </select>
+            <button type="submit">検索</button>
+        </form>
+
+    <!--登録した本を表示-->
+    <ul>
+        <% books.forEach(book => { %>
+            <li 
+            style="background-color: <%= book.color %>;" 
+            id="list-<%= book.id %>"
+            class="list">
+                <small>更新日 <%= book.formatted_update_date %></small><br>
+                <strong>
+                    <%= book.title %>
+                </strong> - <%= book.author %>（<span id="currentpages"><%= book.current_pages%></span>/<%= book.total_pages %>ページ）
+                <!--進捗メーター-->
+                <meter class="pages" min="0" max="<%= book.total_pages %>" low="50" high="150" optimum="500" value="<%= book.current_pages%>"></meter><p class="progress"></p>
+
+                
+                <!--フォーム送信ボタン-->
+                <div class="submit">
+                    <!--ページ更新-->
+                    <input type="number" name="currentPages"
+                        min="0"
+                        max="<%= book.total_pages %>"
+                        value="0"
+                        required>
+                    <button class="action-btn"
+                            data-action="/update"
+                            data-id="<%= book.id %>"
+                            data-current-pages="<%= book.current_pages %>">更新</button>
+                
+                    <div style="display:inline-flex">
+                        
+                    <!--削除-->
+                    <button type="button"
+                            class="action-btn"
+                            data-action="/delete"
+                            data-id="<%= book.id %>"
+                            data-title="<%= book.title %>">削除</button>
+                            
+                    <!--読了-->
+                    <button type="button"
+                            class="action-btn comp"
+                            data-action="/add_done"
+                            data-id="<%= book.id %>"
+                            data-title="<%= book.title %>"
+                            data-author="<%= book.author %>"
+                            data-total_pages="<%= book.total_pages %>"
+                            value="1" disabled>読み終えた！</button>
+                    </div>
+                </div>    
+            </li>
+        <% }); %>
+        <a href="/">戻る→</a>
+    </ul>
+    <script type="text/javascript" src="/js/indexscript.js"></script>
+</body>
+</html>

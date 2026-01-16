@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>テストフォーム</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h1>こちらテストフォームです</h1>
+    <ul>    
+        <% books.forEach(book => { %>
+            <li 
+            style="background-color: <%= book.color %>;" 
+            id="list-<%= book.id %>"
+            class="list">
+                <small>更新日 <%= book.formatted_update_date %></small><br>
+                <strong><%= book.title %></strong> - <%= book.author %>（<span id="currentpages"><%= book.current_pages%></span>/<%= book.total_pages %>ページ）
+
+                <!-- 共通フォーム -->
+                <form id="book-action-form" method="POST">
+                    <input type="hidden" name="id">
+                    <input type="hidden" name="title">
+                    <input type="hidden" name="current_pages">
+                </form>
+
+                <!--ページ更新ボタン※うまくいかない-->
+                <div class="update-submit">
+                    <input type="number" name="currentPages"
+                        min="0"
+                        max="<%= book.total_pages %>"
+                        required>
+                    <button class="action-btn"
+                            data-action="/update"
+                            data-id="<%= book.id %>"
+                            data-current-pages="<%= book.current_pages %>">更新</button>
+                </div>
+                <!--削除ボタン-->
+                <button class="action-btn"
+                        data-action="/delete"
+                        data-id="<%= book.id %>">削除</button>
+                        
+            </li>
+
+        <label for="pages">ページ:</label>
+            <meter id="pages" min="0" max="<%= book.total_pages %>" low="50" high="150" optimum="68" value="<%= book.current_pages%>">
+                at 50/100
+            </meter>
+            
+        <% }); %>
+    </ul>
+    <script type="text/javascript" src="/js/testscript.js"></script>
+    <a href="/">← 戻る</a>
+    <a href="/register">ユーザ登録</a>
+</body>
+</html>

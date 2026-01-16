@@ -1,0 +1,39 @@
+body{
+    background-color:blanchedalmond;
+}
+ul{
+    list-style: none;
+    padding-left:25px;
+}
+.list{
+    width:35%;
+    margin-bottom:25px;
+    border:2px;
+    border-color:rgb(12, 12, 12);
+    border-style:solid;
+}
+.want-list{
+    width:35%;
+    margin-bottom:25px;
+    border:2px;
+    border-color:rgb(12, 12, 12);
+    border-style:solid;
+    background-color:white;
+}
+.progress{
+    display: inline;
+}
+#result{
+    width:35%;  
+    margin:10px;
+    border:5px;
+    border-color:rgb(12, 12, 12);
+    border-style:solid;
+}
+#test-list{
+    width:35%;
+}
+#currentpages{
+    font-weight: bold;
+}
+

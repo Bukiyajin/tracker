@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pagetitle %></title>
+</head>
+<body>
+    <h1>📘 読了リスト</h1>
+        <ul>
+            <% books.forEach(book => { %>
+                <li style="background-color:<%= book.color %>;">
+                    <strong><%= book.title %></strong> by <%= book.author %><br>
+                    <small>読了日: <%= book.formatted_update_date %></small><br>
+                    <span>📖 <%= book.total_pages %>ページ</span>
+                    <!--削除ボタン-->
+                    <form method="POST" action="/finish_delete">
+                        <input type="hidden" name="id" value="<%= book.id %>">
+                        <input type="hidden" name="title" value="<%= book.title %>">
+                        <button type="submit">削除</button>
+                    </form>
+                </li>
+            <% }); %>
+        </ul>
+    <a href="/">← 戻る</a> 
+    There is no man
+</body>
+</html>

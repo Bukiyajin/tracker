@@ -1,0 +1,98 @@
+#welcome{
+    font-size:50px;
+}
+
+body {
+    text-align: center;
+    font-family: sans-serif;
+    }
+
+    #current-title{
+        margin:100px 0px 150px 0px;
+        animation-name: fadein_2;
+        animation-duration: 1.5s;
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards;
+    }
+    @keyframes fadein_2{
+    0%{
+        opacity: 0;
+        transform: translateX(0px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(20px);
+    }
+    }
+
+    .select-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .book{
+        font-size: 100px;
+        text-align: center;
+    }
+
+    .logoutoor{
+        font-size: 100px;
+        text-align: center;
+    }
+    .book-select {
+        padding: 10px;
+        border: 2px solid transparent;
+        border-radius: 10px;
+    }
+
+    .selected {
+
+        border-color: dodgerblue;
+        background-color: #f0f8ff;
+        display: block;
+    }
+
+    #arrow-right{
+        position: relative;
+        padding-left: 25px;
+    }
+    #arrow-right::before { /* くの字の表示設定 */
+        content: "";
+        margin: auto;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 2px;
+        width: 13px;    /* くの字を山なりに見た時、左側の長さ */
+        height: 13px;   /* くの字を山なりに見た時、右側の長さ */
+        border-top: 3px solid #000;     /* くの字を山なりに見た時、左側の太さと色 */
+        border-right: 3px solid #000;   /* くの字を山なりに見た時、右側の太さと色 */
+        transform: rotate(45deg);    /* くの字の向き */
+    }
+    #arrow-right:hover::before{
+        border-top: 3px solid #ff0000;
+        border-right: 3px solid #ff0000;
+    }
+    #arrow-left{
+        position: relative;
+        padding-right: 25px;
+    }
+    #arrow-left::before { /* くの字の表示設定 */
+        content: "";
+        margin: auto;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 2px;
+        width: 13px;    /* くの字を山なりに見た時、左側の長さ */
+        height: 13px;   /* くの字を山なりに見た時、右側の長さ */
+        border-top: 3px solid #000;     /* くの字を山なりに見た時、左側の太さと色 */
+        border-right: 3px solid #000;   /* くの字を山なりに見た時、右側の太さと色 */
+        transform: rotate(225deg);    /* くの字の向き */
+    }
+    #arrow-left:hover::before{
+        border-top: 3px solid #ff0000;
+        border-right: 3px solid #ff0000;
+    }
